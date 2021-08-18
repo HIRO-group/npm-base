@@ -67,6 +67,7 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
 
 2.  Open `~/npm/catkin_ws/intera.sh` in your favorite text editor and edit the following variables.
     Make sure you're connected to the HIROLab wifi (not HIROLab2!) --- Sawyer is plugged into this router.
+    Connect to real-world Sawyer by launching `./intera.sh` after editing the script.
     ~~~
     your_ip="????"  # use ifconfig to find your IP address and copy it here
     ros_version="melodic"
