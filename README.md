@@ -104,8 +104,18 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
 
 ## Install the simulation environment
 
-1.  Install `librealsense` by following the instructions [here](https://github.com/IntelRealSense/librealsense#building-librealsense---using-vcpkg)
-    or [here](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md).
+1.  Install `librealsense`:
+~~~
+sudo apt install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev libusb-1.0-0-dev
+mkdir -p ~/repos && cd ~/repos
+git clone https://github.com/IntelRealSense/librealsense
+mkdir -p librealsense/build && cd librealsense/build
+cmake .. -DFORCE_RSUSB_BACKEND=true -DCMAKE_BUILD_TYPE=release
+make -j$(nproc)
+sudo make install
+
+sudo ln -s ~/repos/librealsense/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules
+~~~
     To test your installation, plug the RealSense camera into a USB3 port (this is how it receives power!) and run `realsense-viewer` in the terminal.
     You should be able to see RGB and depth feeds in the RealSense GUI.
 2.  Clone the simulation environment repo: `cd ~/npm && git clone git@github.com:HIRO-group/robot-sim-envs.git`
