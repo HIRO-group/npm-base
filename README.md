@@ -2,8 +2,9 @@ This repo lays out the web of repositories and setup instructions
 required to run code and enable experiments for **PokeRRT** and **multimodal planning**.
 
 ## Set up your dev environment
-1.  Make a project folder for all the repos and the dev environment: `mkdir ~/npm && cd ~/npm`
-2.  Install ROS Melodic on Ubuntu 18.04 with Python 2.7 support.
+1.  Setup an SSH Key with Gitub: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+2.  Make a project folder for all the repos and the dev environment: `mkdir ~/npm && cd ~/npm`
+3.  Install ROS Noetic on Ubuntu 20.04 with Python 3.8 support.
     ~~~
     # Setup your computer to accept software from packages.ros.org
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -13,22 +14,22 @@ required to run code and enable experiments for **PokeRRT** and **multimodal pla
 
     # Install ROS
     sudo apt update
-    sudo apt install ros-melodic-desktop-full
+    sudo apt install ros-noetic-desktop-full
 
+    # Setup your environment — it's convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched.
+    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+    source ~/.bashrc
+
+    # Other dependencies — Up to now you have installed what you need to run the core ROS packages. To create and manage your own ROS workspaces, there are various tools and requirements that are distributed separately. For example, rosinstall is a frequently used command-line tool that enables you to easily download many source trees for ROS packages with one command.
+    sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential python3-rosdep python3-virtualenv
+    
     # Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.
     sudo rosdep init
     rosdep update
 
-    # Setup your environment — it's convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched.
-    echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-    source ~/.bashrc
-
-    # Other dependencies — Up to now you have installed what you need to run the core ROS packages. To create and manage your own ROS workspaces, there are various tools and requirements that are distributed separately. For example, rosinstall is a frequently used command-line tool that enables you to easily download many source trees for ROS packages with one command.
-    sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
-
     # Create your development workspace
     mkdir -p ~/npm/catkin_ws/src
-    source /opt/ros/melodic/setup.bash
+    source /opt/ros/noetic/setup.bash
     cd ~/npm/catkin_ws
     catkin_make
 
@@ -37,8 +38,8 @@ required to run code and enable experiments for **PokeRRT** and **multimodal pla
     source ~/.bashrc
     ~~~
 
-3.  Create your Python 2 virtual environment: `cd ~/npm && virtualenv -p python2.7 npm_env`.
-    This project was developed using Python 2.7.
+3.  Create your Python 3 virtual environment: `cd ~/npm && virtualenv -p python3.8 npm_env`.
+    This project was developed using Python 3.8.
 
 4.  Activate your virtual environment: `source npm_env/bin/activate`
 ## Install `PyKDL`  
@@ -69,7 +70,7 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
     wstool merge sawyer_robot/sawyer_robot.rosinstall
     wstool update
     
-    source /opt/ros/melodic/setup.bash
+    source /opt/ros/noetic/setup.bash
     
     cd ~/npm/catkin_ws
     catkin_make
@@ -82,7 +83,7 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
     Connect to real-world Sawyer by launching `./intera.sh` after editing the script.
     ~~~
     your_ip="????"  # use ifconfig to find your IP address and copy it here
-    ros_version="melodic"
+    ros_version="noetic"
     robot_hostname="hirosawyer.local"
     ~~~
 
@@ -96,7 +97,7 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
     source ~/npm/catkin_ws/devel/setup.bash
     ~~~
 
-4.  Install `trac_ik` for inverse kinematics: `sudo apt-get install ros-melodic-trac-ik`
+4.  Install `trac_ik` for inverse kinematics: `sudo apt-get install ros-noetic-trac-ik`
 
 5.  Clone the simulation and real-world wrapper: `cd ~/npm && git clone git@github.com:HIRO-group/robot-interface.git`
 
