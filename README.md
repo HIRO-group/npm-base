@@ -116,8 +116,8 @@ sudo make install
 
 sudo ln -s ~/repos/librealsense/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules
 ~~~
-    To test your installation, plug the RealSense camera into a USB3 port (this is how it receives power!) and run `realsense-viewer` in the terminal.
-    You should be able to see RGB and depth feeds in the RealSense GUI.
+   To test your installation, plug the RealSense camera into a USB3 port (this is how it receives power!) and run `realsense-viewer` in the terminal.
+   You should be able to see RGB and depth feeds in the RealSense GUI.
 2.  Clone the simulation environment repo: `cd ~/npm && git clone git@github.com:HIRO-group/robot-sim-envs.git`
 3.  Install the module in editable mode: `pip install -e robot-sim-envs`
 
