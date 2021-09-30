@@ -41,6 +41,18 @@ required to run code and enable experiments for **PokeRRT** and **multimodal pla
     This project was developed using Python 2.7.
 
 4.  Activate your virtual environment: `source npm_env/bin/activate`
+## Install `PyKDL`  
+1. Download PyKDL tar from this website: https://pypi.lcsb.uni.lu/simple/pykdl/  
+2. Install using the following steps:  
+~~~
+cd ~/Downloads  
+tar -xzf PyKDL-1.4.0.tar.gz  
+mkdir PyKDL
+mv PyKDL-1.4.0/* PyKDL
+rm -rf PyKDL-1.4.0
+python3 PyKDL/setup.py build
+python3 PyKDL/setup.py install
+~~~
 
 ## Install the `logger` module
 This repo handles all the logging functionality for robot, object, and environment states.
