@@ -31,6 +31,12 @@ class Velocity:
 
 
 @dataclass
+class Effort:
+    force: Point
+    torque: Point
+
+
+@dataclass
 class JointLimits:
     angle: np.ndarray
     velocity: np.ndarray
