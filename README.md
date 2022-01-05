@@ -1,6 +1,8 @@
 This repo lays out the web of repositories and setup instructions
 required to run code and enable experiments for **PokeRRT** and **multimodal planning**.
 
+Update: You can use `pip install -r requirements.txt` to install all the necessary Python modules. Untested.
+
 ## Set up your dev environment
 1.  [Setup](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) an SSH Key with GitHub.
 2.  Make a project folder for all the repos and the dev environment: `mkdir ~/npm && cd ~/npm`
