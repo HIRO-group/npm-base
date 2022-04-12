@@ -9,6 +9,8 @@ class Point:
     y: float
     z: float
 
+    def to_list(self):
+        return [self.x, self.y, self.z]
 
 @dataclass
 class Quaternion:
@@ -16,6 +18,9 @@ class Quaternion:
     y: float
     z: float
     w: float
+
+    def to_list(self):
+        return [self.x, self.y, self.z, self.w]
 
 
 @dataclass
