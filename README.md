@@ -114,3 +114,13 @@ This allows you to control Sawyer and Panda in simulation (PyBullet) and the rea
 ## Install the planning algorithms
 1.  Clone the repo: `cd ~/npm && git clone git@github.com:HIRO-group/npm-planning.git`
 2.  Install the module in editable mode: `pip install -e npm-planning`
+
+## Misc
+1.  To make your life easier, add these to your `~/.bashrc`:
+    ~~~
+    alias intera='cd ~/npm/catkin_ws && ./intera.sh'
+    alias npm='source ~/npm/npm_env/bin/activate'
+    ~~~
+2.  Run `source ~/.bashrc`
+
+Now you can use the commands `intera` and `npm` to connect to Sawyer and activate your Python virtual environment, respectively.
