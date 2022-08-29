@@ -9,7 +9,7 @@ class Point:
     y: float
     z: float
 
-    def to_list(self):
+    def tolist(self):
         return [self.x, self.y, self.z]
 
 @dataclass
@@ -19,7 +19,7 @@ class Quaternion:
     z: float
     w: float
 
-    def to_list(self):
+    def tolist(self):
         return [self.x, self.y, self.z, self.w]
 
 
@@ -27,6 +27,9 @@ class Quaternion:
 class Pose:
     position: Point
     orientation: Union[Quaternion, Point]
+
+    def tolist(self):
+        return [self.position.tolist(), self.orientation.tolist()]
 
 
 @dataclass
