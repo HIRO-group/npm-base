@@ -17,9 +17,9 @@ setuptools.setup(
     packages=setuptools.find_packages(where='npm_base*'),
     install_requires=[],
     classifiers=[
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.7'
+    python_requires='>=3.8'
 )

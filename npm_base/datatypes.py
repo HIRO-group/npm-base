@@ -1,6 +1,7 @@
-from typing import Union
-import numpy as np
 from dataclasses import dataclass
+from typing import Union
+
+import numpy as np
 
 
 @dataclass
@@ -11,6 +12,7 @@ class Point:
 
     def tolist(self):
         return [self.x, self.y, self.z]
+
 
 @dataclass
 class Quaternion:
@@ -49,3 +51,13 @@ class JointLimits:
     angle: np.ndarray
     velocity: np.ndarray
     effort: np.ndarray
+
+
+@dataclass
+class Node:
+    x: float
+    y: float
+    theta: float
+
+    def totuple(self):
+        return self.x, self.y, self.theta
