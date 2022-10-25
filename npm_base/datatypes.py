@@ -39,11 +39,17 @@ class Velocity:
     linear: Point
     angular: Point
 
+    def tolist(self):
+        return [self.linear.tolist(), self.angular.tolist()]
+
 
 @dataclass
 class Effort:
     force: Point
     torque: Point
+
+    def tolist(self):
+        return [self.force.tolist(), self.torque.tolist()]
 
 
 @dataclass
