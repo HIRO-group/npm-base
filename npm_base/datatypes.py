@@ -33,6 +33,9 @@ class Pose:
     def tolist(self):
         return [self.position.tolist(), self.orientation.tolist()]
 
+    def tonode(self):
+        return Node(x=self.position.x, y=self.position.y, theta=self.orientation.z)
+
 
 @dataclass
 class Velocity:
@@ -63,7 +66,12 @@ class JointLimits:
 class Node:
     x: float
     y: float
-    theta: float
+    theta: float  # radians
 
     def totuple(self):
         return self.x, self.y, self.theta
+
+    def topose(self, z, euler):
+        from .utils import convert_orientation  # to avoid circular import
+        return Pose(position=Point(x=self.x, y=self.y, z=z),
+                    orientation=convert_orientation(Point(x=0, y=0, z=self.theta), euler=euler))
