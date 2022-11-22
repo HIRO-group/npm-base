@@ -34,6 +34,8 @@ class Pose:
         return [self.position.tolist(), self.orientation.tolist()]
 
     def tonode(self):
+        from .utils import convert_orientation  # to avoid circular import
+        ori = convert_orientation(self.orientation, euler=True)
         return Node(x=self.position.x, y=self.position.y, theta=self.orientation.z)
 
 
