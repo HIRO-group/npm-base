@@ -36,7 +36,7 @@ class Pose:
     def tonode(self):
         from .utils import convert_orientation  # to avoid circular import
         ori = convert_orientation(self.orientation, euler=True)
-        return Node(x=self.position.x, y=self.position.y, theta=self.orientation.z)
+        return Node(x=self.position.x, y=self.position.y, theta=ori.z)
 
 
 @dataclass
@@ -73,7 +73,15 @@ class Node:
     def totuple(self):
         return self.x, self.y, self.theta
 
+    def tolist(self):
+        return [self.x, self.y, self.theta]
+
     def topose(self, z, euler):
         from .utils import convert_orientation  # to avoid circular import
         return Pose(position=Point(x=self.x, y=self.y, z=z),
                     orientation=convert_orientation(Point(x=0, y=0, z=self.theta), euler=euler))
+
+    def distance(self, other):
+        # only calculates positional distance
+        return np.linalg.norm(np.array(self.totuple()[:2]) - np.array(other.totuple()[:2]))
+
