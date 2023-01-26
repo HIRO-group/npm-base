@@ -62,6 +62,7 @@ class JointLimits:
     angle: np.ndarray
     velocity: np.ndarray
     effort: np.ndarray
+    acceleration: np.ndarray
 
 
 @dataclass
