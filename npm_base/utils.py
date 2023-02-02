@@ -84,8 +84,8 @@ def is_within_radius(node1, node2, radius):
 def pos_is_similar(orig_pos, current_pose, threshold):
     """
     tells if two points or vectors are similar
-    @param orig_pos [list or np.ndarray]
-    @param current_pose [list or np.ndarray]
+    @param orig_pos_xyz [list or np.ndarray]
+    @param current_pose_xyz [list or np.ndarray]
 
     @return bool
     """
