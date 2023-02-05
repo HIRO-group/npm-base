@@ -30,8 +30,10 @@ class Pose:
     position: Point
     orientation: Union[Quaternion, Point]
 
-    def tolist(self):
-        return [self.position.tolist(), self.orientation.tolist()]
+    def tolist(self, flatten=False):
+        ls = [self.position.tolist(), self.orientation.tolist()]
+        if flatten:
+            return [item for sublist in ls for item in sublist]
 
     def tonode(self):
         from .utils import convert_orientation  # to avoid circular import
