@@ -34,6 +34,7 @@ class Pose:
         ls = [self.position.tolist(), self.orientation.tolist()]
         if flatten:
             return [item for sublist in ls for item in sublist]
+        return ls
 
     def tonode(self):
         from .utils import convert_orientation  # to avoid circular import
@@ -63,8 +64,9 @@ class Effort:
 class JointLimits:
     angle: np.ndarray
     velocity: np.ndarray
-    effort: np.ndarray
+    torque: np.ndarray
     acceleration: np.ndarray
+    jerk: np.ndarray
 
 
 @dataclass
