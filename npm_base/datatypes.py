@@ -64,6 +64,7 @@ class Effort:
 class JointLimits:
     angle: np.ndarray
     velocity: np.ndarray
+    # torque: np.ndarray
     effort: np.ndarray
     acceleration: np.ndarray
     # jerk: np.ndarray

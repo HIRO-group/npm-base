@@ -91,3 +91,19 @@ def is_within_radius(node1, node2, radius):
     xy_dist, theta_dist = node_distance(node1, node2)
 
     return xy_dist <= radius and theta_dist <= radius
+
+
+def pos_is_similar(orig_pos, current_pose, threshold):
+    """
+    tells if two points or vectors are similar
+    @param orig_pos [list or np.ndarray]
+    @param current_pose [list or np.ndarray]
+
+    @return bool
+    """
+    if type(orig_pos) is not np.ndarray:
+        orig_pos = np.array(orig_pos[0])
+    if type(current_pose) is not np.ndarray:
+        current_pose = np.array(current_pose[0])
+    dist = np.linalg.norm(orig_pos - current_pose)
+    return dist <= threshold
