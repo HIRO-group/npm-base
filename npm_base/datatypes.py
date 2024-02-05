@@ -67,8 +67,8 @@ class JointLimits:
     # torque: np.ndarray
     effort: np.ndarray
     acceleration: np.ndarray
-    d_tau: np.ndarray
-    jerk: np.ndarray
+    # d_tau: np.ndarray
+    # jerk: np.ndarray
 
 
 @dataclass
